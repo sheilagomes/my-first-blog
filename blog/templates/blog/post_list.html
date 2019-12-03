@@ -1,19 +1,22 @@
+{% load static %}
 <html>
     <head>
-        <title>Blog da Sheila</title>
+        <title>Diário de código</title>
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
     </head>
     <body>
-        <div>
-            <h1>Blog da Sheila</h1>
+        <div class="page-header">
+            <h1>Diário de código</h1>
         </div>
-
-        {% for post in posts %}
-		    <div>
-		        <h2><a href="">{{ post.title }}</a></h2>
-		        <p>{{ post.published_date }}</p>
-		        <p>{{ post.text|linebreaksbr }}</p>
-		    </div>
-		{% endfor %}
-
+        <div class="content">
+	        {% for post in posts %}
+			    <div class="post">
+			        <h2><a href="">{{ post.title }}</a></h2>
+			        <span class="date">{{ post.published_date }}</span>
+			        <p class="text">{{ post.text|linebreaksbr }}</p>
+			    </div>
+			{% endfor %}
+		</div>
     </body>
 </html>
